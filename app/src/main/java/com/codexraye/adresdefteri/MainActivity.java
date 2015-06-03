@@ -110,62 +110,12 @@ public class MainActivity extends ActionBarActivity {
         }
         c1.close();
 
-        ContactListAdapter contactListAdapter = new ContactListAdapter(
-                MainActivity.this, contactList);
+        ContactListAdapter contactListAdapter;
+        contactListAdapter = new ContactListAdapter(MainActivity.this, contactList);
         lvCustomList.setAdapter(contactListAdapter);
 
     }
 
-    public class ContactListAdapter extends BaseAdapter {
 
-        Context context;
-        ArrayList<Rehber> contactList;
-
-        public ContactListAdapter(Context context, ArrayList<Rehber> list) {
-
-            this.context = context;
-            contactList = list;
-        }
-
-        @Override
-        public int getCount() {
-
-            return contactList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-
-            return contactList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup arg2) {
-            Rehber contactListItems = contactList.get(position);
-
-            if (convertView == null) {
-                LayoutInflater inflater = (LayoutInflater) context
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.contact_list_row, null);
-
-            }
-
-            TextView tvSlNo = (TextView) convertView.findViewById(R.id.tv_id);
-            tvSlNo.setText(contactListItems.getId());
-            TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
-            tvName.setText(contactListItems.getAdisoyadi());
-            TextView tvPhone = (TextView) convertView.findViewById(R.id.tv_phone);
-            tvPhone.setText(contactListItems.getTelefon());
-
-            return convertView;
-        }
-
-    }
 
 }
